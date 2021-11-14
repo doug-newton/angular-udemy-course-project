@@ -10,4 +10,8 @@
 </div>
 
 
-<app-scenario-grid (deleteStepColumn)="onDeleteStepColumn($event)" [stepColumns]="stepColumns" [scenarios]="scenarios"></app-scenario-grid>
+<app-scenario-grid 
+(deleteStepColumn)="onDeleteStepColumn($event)" 
+(renameStepColumn)="onRenameStepColumn($event)"
+[stepColumns]="stepColumns" 
+[scenarios]="scenarios"></app-scenario-grid>

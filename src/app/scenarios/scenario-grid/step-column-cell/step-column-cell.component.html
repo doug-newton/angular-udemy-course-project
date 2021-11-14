@@ -1,5 +1,14 @@
-<span (mouseenter)="showDeleteButton()"
-    (mouseleave)="hideDeleteButton()">
-    {{stepColumn}}
-    <button *ngIf="deleteButtonVisible" (click)="onDeleteStepColumn()" class="btn btn-danger delete-button">x</button>
+<span 
+    (mouseenter)="showDeleteButton()" 
+    (mouseleave)="hideDeleteButton()" 
+    (click)="startEditing()"
+    (keydown.enter)="save()">
+    <ng-container *ngIf="editing; else notEditing">
+        <input [(ngModel)]="newStepColumn" type="text">
+    </ng-container>
+    <ng-template #notEditing>
+        {{stepColumn}}
+    </ng-template>
+        <button *ngIf="deleteButtonVisible" (click)="onDeleteStepColumn()"
+            class="btn btn-danger delete-button">x</button>
 </span>

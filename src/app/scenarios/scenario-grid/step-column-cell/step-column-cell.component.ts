@@ -9,8 +9,12 @@ export class StepColumnCellComponent implements OnInit {
 
   @Input() stepColumn: string = ''
   @Output() deleteStepColumn: EventEmitter<string> = new EventEmitter
+  @Output() renameStepColumn: EventEmitter<{oldName:string,newName:string}> = new EventEmitter
 
   deleteButtonVisible: boolean = false
+
+  newStepColumn: string = ''
+  editing: boolean = false
 
   constructor() { }
 
@@ -27,6 +31,19 @@ export class StepColumnCellComponent implements OnInit {
 
   hideDeleteButton() {
     this.deleteButtonVisible = false
+  }
+
+  startEditing() {
+    this.editing = true
+    this.newStepColumn = this.stepColumn
+  }
+
+  save() {
+    this.renameStepColumn.emit({
+      oldName: this.stepColumn,
+      newName: this.newStepColumn
+    })
+    this.editing = false
   }
 
 }

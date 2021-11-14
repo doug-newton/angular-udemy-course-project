@@ -11,6 +11,7 @@ export class ScenarioGridComponent implements OnInit {
   @Input() scenarios: Scenario[] = []
   @Input() stepColumns: string[] = []
   @Output() deleteStepColumn: EventEmitter<string> = new EventEmitter
+  @Output() renameStepColumn: EventEmitter<{oldName:string, newName:string}> = new EventEmitter
 
   constructor() { }
 
@@ -19,6 +20,10 @@ export class ScenarioGridComponent implements OnInit {
 
   onDeleteStepColumn(stepColumn:string) {
     this.deleteStepColumn.emit(stepColumn)
+  }
+
+  onRenameStepColumn(names:{oldName:string, newName:string}) {
+    this.renameStepColumn.emit(names)
   }
 
 }
