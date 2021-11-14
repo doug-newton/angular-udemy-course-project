@@ -5,6 +5,9 @@
   </tr>
   <tr *ngFor="let scenario of scenarios">
     <td>{{scenario.name}}</td>
-    <td *ngFor="let stepColumn of stepColumns">{{scenario.steps[stepColumn]}}</td>
+      <td app-step-cell *ngFor="let stepColumn of stepColumns" 
+        [scenario]="scenario" 
+        [stepColumn]="stepColumn"
+      ></td>
   </tr>
 </table>

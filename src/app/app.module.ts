@@ -8,6 +8,7 @@ import { AddScenarioComponent } from './scenarios/add-scenario/add-scenario.comp
 import { AddStepColumnComponent } from './scenarios/add-step-column/add-step-column.component';
 import { ScenariosComponent } from './scenarios/scenarios.component';
 import { ScenarioGridComponent } from './scenarios/scenario-grid/scenario-grid.component';
+import { StepCellComponent } from './scenarios/scenario-grid/step-cell/step-cell.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ScenarioGridComponent } from './scenarios/scenario-grid/scenario-grid.c
     AddScenarioComponent,
     AddStepColumnComponent,
     ScenariosComponent,
-    ScenarioGridComponent
+    ScenarioGridComponent,
+    StepCellComponent
   ],
   imports: [
     BrowserModule,
