@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Scenario } from '../scenario.model';
+import { Scenario } from './scenario.model';
 
 @Component({
   selector: 'app-scenarios',

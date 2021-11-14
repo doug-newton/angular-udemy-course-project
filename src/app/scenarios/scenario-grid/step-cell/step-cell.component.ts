@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Scenario } from '../../../scenario.model'
+import { Scenario } from '../../scenario.model'
 
 @Component({
   selector: '[app-step-cell]',

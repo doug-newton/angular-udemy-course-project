@@ -1,5 +1,5 @@
 <div class="form-group row col-md-4">
-    <input [(ngModel)]='newScenarioName' name='new-scenario' type="text" id="scenario" class="form-control"
+    <input (keydown.enter)="onAddScenario()" [(ngModel)]='newScenarioName' name='new-scenario' type="text" id="scenario" class="form-control"
         placeholder="new scenario name">
 </div>
 <div class="form-group row col-md-4">

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Scenario } from 'src/app/scenario.model';
+import { Scenario } from 'src/app/scenarios/scenario.model';
 
 @Component({
   selector: 'app-scenario-grid',
