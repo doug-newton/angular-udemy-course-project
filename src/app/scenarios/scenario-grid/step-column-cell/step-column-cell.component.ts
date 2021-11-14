@@ -10,6 +10,8 @@ export class StepColumnCellComponent implements OnInit {
   @Input() stepColumn: string = ''
   @Output() deleteStepColumn: EventEmitter<string> = new EventEmitter
 
+  deleteButtonVisible: boolean = false
+
   constructor() { }
 
   ngOnInit(): void {
@@ -17,6 +19,14 @@ export class StepColumnCellComponent implements OnInit {
 
   onDeleteStepColumn() {
     this.deleteStepColumn.emit(this.stepColumn)
+  }
+
+  showDeleteButton() {
+    this.deleteButtonVisible = true
+  }
+
+  hideDeleteButton() {
+    this.deleteButtonVisible = false
   }
 
 }

@@ -1,4 +1,5 @@
-<span>
+<span (mouseenter)="showDeleteButton()"
+    (mouseleave)="hideDeleteButton()">
     {{stepColumn}}
-    <button (click)="onDeleteStepColumn()" class="btn btn-danger delete-button">x</button>
+    <button *ngIf="deleteButtonVisible" (click)="onDeleteStepColumn()" class="btn btn-danger delete-button">x</button>
 </span>
