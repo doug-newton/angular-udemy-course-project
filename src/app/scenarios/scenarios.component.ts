@@ -9,10 +9,10 @@ import { Scenario } from './scenario.model';
 export class ScenariosComponent implements OnInit {
 
   scenarios: Scenario[] = [
-    new Scenario("SC-1-1", {'step 2':'pay','step 3':'cancel'})
+    new Scenario("scenario 1", )
   ]
 
-  stepColumns: string[] = ['step 1','step 2','step 3']
+  stepColumns: string[] = []
 
   ngOnInit() {
   }
