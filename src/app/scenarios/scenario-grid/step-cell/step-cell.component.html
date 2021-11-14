@@ -1,1 +1,6 @@
-<td>{{scenario.steps[stepColumn]}}</td>
+<ng-container *ngIf="editing; else foo">
+    <input (keydown.enter)="save()" [(ngModel)]="stepContent" name="step-content" type="text" placeholder="step" class="form-control">
+</ng-container>
+<ng-template #foo>
+    {{scenario.steps[stepColumn]}}
+</ng-template>
