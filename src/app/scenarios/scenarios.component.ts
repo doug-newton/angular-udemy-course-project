@@ -45,13 +45,13 @@ export class ScenariosComponent implements OnInit {
     }
   }
 
-  deleteStepColumn(stepColumn:string) {
+  private deleteStepColumn(stepColumn:string) {
     this.stepColumns = this.stepColumns.filter(column=>{
       return column !== stepColumn
     })
   }
 
-  sortStepColumns() {
+  private sortStepColumns() {
     this.stepColumns = this.stepColumns.sort((a, b) => {
       if (a < b) return -1
       if (a > b) return 1
