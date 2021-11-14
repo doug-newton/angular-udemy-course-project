@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { AddScenarioComponent } from './scenarios/add-scenario/add-scenario.component';
 import { AddStepColumnComponent } from './scenarios/add-step-column/add-step-column.component';
 import { ScenariosComponent } from './scenarios/scenarios.component';
+import { ScenarioGridComponent } from './scenarios/scenario-grid/scenario-grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddScenarioComponent,
     AddStepColumnComponent,
-    ScenariosComponent
+    ScenariosComponent,
+    ScenarioGridComponent
   ],
   imports: [
     BrowserModule,

@@ -9,13 +9,5 @@
   </form>
 </div>
 
-<table>
-  <tr>
-    <th>Scenario</th>
-    <th *ngFor="let stepColumn of stepColumns">{{stepColumn}}</th>
-  </tr>
-  <tr *ngFor="let scenario of scenarios">
-    <td>{{scenario.name}}</td>
-    <td *ngFor="let stepColumn of stepColumns">{{scenario.steps[stepColumn]}}</td>
-  </tr>
-</table>
+
+<app-scenario-grid [stepColumns]="stepColumns" [scenarios]="scenarios"></app-scenario-grid>
