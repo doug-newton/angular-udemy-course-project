@@ -1,7 +1,7 @@
 <table>
   <tr>
     <th>Scenario</th>
-    <th *ngFor="let stepColumn of stepColumns">{{stepColumn}}</th>
+    <th app-step-column-cell (deleteStepColumn)="onDeleteStepColumn($event)" *ngFor="let stepColumn of stepColumns" [stepColumn]="stepColumn"></th>
   </tr>
   <tr *ngFor="let scenario of scenarios">
     <td>{{scenario.name}}</td>

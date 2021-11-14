@@ -28,4 +28,14 @@ export class ScenariosComponent implements OnInit {
     this.stepColumns = Array.from(new Set(this.stepColumns))
   }
 
+  onDeleteStepColumn(stepColumn:string) {
+    this.stepColumns = this.stepColumns.filter(column=>{
+      return column !== stepColumn
+    })
+    for (let scenario of this.scenarios) {
+      delete scenario.steps[stepColumn]
+    }
+  }
+
+
 }
