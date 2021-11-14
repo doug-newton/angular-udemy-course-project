@@ -4,14 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddScenarioComponent } from './add-scenario/add-scenario.component';
-import { AddStepColumnComponent } from './add-step-column/add-step-column.component';
+import { AddScenarioComponent } from './scenarios/add-scenario/add-scenario.component';
+import { AddStepColumnComponent } from './scenarios/add-step-column/add-step-column.component';
+import { ScenariosComponent } from './scenarios/scenarios.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddScenarioComponent,
-    AddStepColumnComponent
+    AddStepColumnComponent,
+    ScenariosComponent
   ],
   imports: [
     BrowserModule,
