@@ -1,9 +1,31 @@
-<app-header></app-header>
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <app-recipes></app-recipes>
-      <app-shopping-list></app-shopping-list>
+  <form>
+    <div class="row">
+      <div class="form-group row col-md-4">
+        <input [(ngModel)]='newScenarioName' name='new-scenario' type="text" id="scenario" class="form-control" placeholder="new scenario name">
+      </div>
+      <div class="form-group row col-md-4">
+        <button (click)="addScenario()" type="button" class="btn btn-primary">add</button>
+      </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="form-group row col-md-4">
+        <input [(ngModel)]='newStepColumn' name='new-step-column' type="text" id="step-column" class="form-control" placeholder="new step column">
+      </div>
+      <div class="form-group row col-md-4">
+        <button (click)="addStepColumn()" type="button" class="btn btn-primary">add</button>
+      </div>
+    </div>
+  </form>
 </div>
+
+<table>
+  <tr>
+    <th>Scenario</th>
+    <th *ngFor="let stepColumn of stepColumns">{{stepColumn}}</th>
+  </tr>
+  <tr *ngFor="let scenario of scenarios">
+    <td>{{scenario.name}}</td>
+    <td *ngFor="let stepColumn of stepColumns">{{scenario.steps[stepColumn]}}</td>
+  </tr>
+</table>
