@@ -8,9 +8,6 @@ import { Scenario } from './scenario.model';
 })
 export class AppComponent implements OnInit {
 
-  newScenarioName: string = ''
-  newStepColumn: string = ''
-
   scenarios: Scenario[] = [
     new Scenario("SC-1-1", {'step 2':'pay','step 3':'cancel'})
   ]
@@ -20,16 +17,14 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
 
-  addScenario(){
-    if (this.newScenarioName === '') return
-    this.scenarios.push(new Scenario(this.newScenarioName))
-    this.newScenarioName = ''
+  addScenario(name:string){
+    if (name === '') return
+    this.scenarios.push(new Scenario(name))
   }
 
-  addStepColumn() {
-    if (this.newStepColumn === '') return
-    this.stepColumns.push(this.newStepColumn)
+  addStepColumn(name:string) {
+    if (name === '') return
+    this.stepColumns.push(name)
     this.stepColumns = Array.from(new Set(this.stepColumns))
-    this.newStepColumn = ''
   }
 }

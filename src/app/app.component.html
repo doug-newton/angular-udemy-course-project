@@ -1,20 +1,10 @@
 <div class="container">
   <form>
     <div class="row">
-      <div class="form-group row col-md-4">
-        <input [(ngModel)]='newScenarioName' name='new-scenario' type="text" id="scenario" class="form-control" placeholder="new scenario name">
-      </div>
-      <div class="form-group row col-md-4">
-        <button (click)="addScenario()" type="button" class="btn btn-primary">add</button>
-      </div>
+      <app-add-scenario (addScenario)="addScenario($event)"></app-add-scenario>
     </div>
     <div class="row">
-      <div class="form-group row col-md-4">
-        <input [(ngModel)]='newStepColumn' name='new-step-column' type="text" id="step-column" class="form-control" placeholder="new step column">
-      </div>
-      <div class="form-group row col-md-4">
-        <button (click)="addStepColumn()" type="button" class="btn btn-primary">add</button>
-      </div>
+      <app-add-step-column (addStepColumn)="addStepColumn($event)"></app-add-step-column>
     </div>
   </form>
 </div>
