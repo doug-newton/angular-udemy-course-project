@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3">
+            <label for="scene-name">Scene Name:</label>
+            <input class="form-control" [(ngModel)]="scene.name" name="scene-name" type="text">
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-3">
+            <button class="btn btn-primary" (click)="onAddPerson()">add person</button>
+            <br>
+            <div *ngIf="editingPersonIndex > -1" class="edit-box">
+                <h4>edit person</h4>
+                <label for="name">name</label>
+                <input class="form-control" [(ngModel)]="scene.people[editingPersonIndex].name" name="name" type="text">
+                <label for="occupation">occupation</label>
+                <select class="form-control" name="occupation" [(ngModel)]="scene.people[editingPersonIndex].occupation">
+                    <option *ngFor="let option of occupationOptions" [value]="option">{{option}}</option>
+                </select>
+                <label for="age">age</label>
+                <input class="form-control" [(ngModel)]="scene.people[editingPersonIndex].age" name="age" type="number">
+                <br>
+                <button type="button" (click)="onFinishEditing()" class="btn btn-primary">done</button>
+            </div>
+        </div>
+        <div *ngIf="scene.people.length > 0" class="col-xs-3 people-box">
+            <h3>people:</h3>
+            <div *ngFor="let person of scene.people; let pos = index" class="person-box" [ngClass]="{editing:pos==editingPersonIndex}">
+                <span (click)="onEditPerson(pos)">{{person.name}} ({{person.age}}yr old {{person.occupation}})</span>
+                <button class="btn-danger delete-button" (click)="onDeletePerson(pos)">x</button>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <app-json-display [scene]="scene"></app-json-display>
+        </div>
+        <div class="col-xs-4">
+        </div>
+    </div>
+</div>

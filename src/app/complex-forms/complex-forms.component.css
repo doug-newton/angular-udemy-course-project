@@ -1,0 +1,44 @@
+.person-box {
+    border: 1px solid black;
+    padding: 0.5em;
+    position: relative
+}
+
+.person-box span {
+    display: inline-block;
+    position: relative;
+}
+
+.person-box button.delete-button {
+    visibility: hidden;
+}
+
+.person-box:hover button.delete-button {
+    visibility: visible;
+}
+
+.person-box:hover {
+    background-color: lightgrey;
+}
+
+button.delete-button {
+    position: relative;
+    right: 0
+}
+
+.people-box {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 0.5em
+}
+
+.editing {
+    background-color: lightgrey;
+}
+
+.edit-box {
+    border: 1px solid blue;
+    background-color: lightgrey;
+    padding: 0.5em;
+    margin: 0.5em 0;
+}
