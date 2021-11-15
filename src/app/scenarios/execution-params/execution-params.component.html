@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="form-group row col-md-3">
+        <label for="months">Months:</label>
+        <input (keydown.enter)="onUpdateParams()" [(ngModel)]="months" type="text" name="months" class="form-control">
+    </div>
+    <div class="form-group row col-md-3">
+        <label for="issue-date">Issue Date:</label>
+        <input (keydown.enter)="onUpdateParams()" [(ngModel)]="issueDate" type="text" name="issue-date" class="form-control">
+    </div>
+    <div class="form-group row col-md-3">
+        <label for="start-date">Start Date:</label>
+        <input (keydown.enter)="onUpdateParams()" [(ngModel)]="startDate" type="text" name="start-date" class="form-control">
+    </div>
+    <div class="form-group row col-md-3">
+        <label for="payment-date">Payment Date:</label>
+        <input (keydown.enter)="onUpdateParams()" [(ngModel)]="paymentDate" type="text" name="payment-date" class="form-control">
+    </div>
+</div>

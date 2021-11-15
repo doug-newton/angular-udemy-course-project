@@ -11,6 +11,7 @@ import { ScenarioGridComponent } from './scenarios/scenario-grid/scenario-grid.c
 import { StepCellComponent } from './scenarios/scenario-grid/step-cell/step-cell.component';
 import { StepColumnCellComponent } from './scenarios/scenario-grid/step-column-cell/step-column-cell.component';
 import { DatesComponent } from './dates/dates.component';
+import { ExecutionParamsComponent } from './scenarios/execution-params/execution-params.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DatesComponent } from './dates/dates.component';
     ScenarioGridComponent,
     StepCellComponent,
     StepColumnCellComponent,
-    DatesComponent
+    DatesComponent,
+    ExecutionParamsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,9 @@
 <ng-container *ngIf="editing; else notEditing">
-    <input (keydown.enter)="save()" [(ngModel)]="stepContent" name="step-content" type="text" placeholder="step" class="form-control">
+    <input (keydown.enter)="save()" [(ngModel)]="stepContent" name="step-content" type="text" placeholder="step"
+        class="form-control">
 </ng-container>
 <ng-template #notEditing>
-    {{scenario.steps[stepColumn]}}
+    <span class="nowrap">
+        {{scenario.steps[stepColumn]}}
+    </span>
 </ng-template>

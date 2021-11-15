@@ -6,11 +6,13 @@
     <div class="row">
       <app-add-step-column (addStepColumn)="addStepColumn($event)"></app-add-step-column>
     </div>
+    <div class="row">
+      <app-execution-params (updateParams)="onUpdateParams($event)"></app-execution-params>
+    </div>
   </form>
 </div>
 
-<app-scenario-grid 
-(deleteStepColumn)="onDeleteStepColumn($event)" 
-(renameStepColumn)="onRenameStepColumn($event)"
-[stepColumns]="stepColumns" 
-[scenarios]="scenarios"></app-scenario-grid>
+<div class="grid-container">
+  <app-scenario-grid (deleteStepColumn)="onDeleteStepColumn($event)" (renameStepColumn)="onRenameStepColumn($event)"
+    [stepColumns]="stepColumns" [scenarios]="scenarios"></app-scenario-grid>
+</div>

@@ -1,4 +1,4 @@
-span {
-    height: 100%;
-    display: block
+
+span.nowrap {
+    white-space: nowrap;
 }

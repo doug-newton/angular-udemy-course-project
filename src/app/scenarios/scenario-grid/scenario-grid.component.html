@@ -8,7 +8,7 @@
     [stepColumn]="stepColumn"></th>
   </tr>
   <tr *ngFor="let scenario of scenarios">
-    <td>{{scenario.name}}</td>
+    <td><span class="nowrap">{{scenario.name}}</span></td>
       <td app-step-cell *ngFor="let stepColumn of stepColumns" 
         [scenario]="scenario" 
         [stepColumn]="stepColumn"
