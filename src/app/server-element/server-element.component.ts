@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
 import { ServerElement } from '../server-element.model';
 
 /*
@@ -24,7 +24,16 @@ the component implements the corresponding interface
   templateUrl: './server-element.component.html',
   styleUrls: ['./server-element.component.css']
 })
-export class ServerElementComponent implements OnInit, OnChanges {
+export class ServerElementComponent implements 
+      OnInit, 
+      OnChanges, 
+      DoCheck,
+      AfterContentInit,
+      AfterContentChecked,
+      AfterViewInit,
+      AfterViewChecked,
+      OnDestroy
+  {
 
   @Input() serverElementName: string
 
@@ -40,4 +49,29 @@ export class ServerElementComponent implements OnInit, OnChanges {
     console.log('ngOnInit called')
   }
 
+  //  note that there's an extra change detection cycle when running ng serve
+
+  ngDoCheck(): void {
+    console.log('ngDoCheck called')
+  }
+
+  ngAfterContentInit(): void {
+    console.log('ngAfterContentInit called')
+  }
+
+  ngAfterContentChecked(): void {
+    console.log('ngAfterContentChecked called')
+  }
+
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit called')
+  }
+
+  ngAfterViewChecked(): void {
+    console.log('ngAfterViewChecked called')
+  }
+
+  ngOnDestroy(): void {
+      console.log('ngOnDestroy called')
+  }
 }
