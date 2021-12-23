@@ -1,27 +1,20 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { ServerElement } from './server-element.model';
+
+/*
+1. create 3 new components: GameControl, Odd, Even
+2. the GameControl component should have buttons to start and pause the game
+3. when starting the game, an event (holding an incrementing number) should get emitted each second
+4. the event should be listenable from outside the component
+5. when stopping the game, no more events should be emitted
+6. a new odd/even component should be created based on the number in the event emitted by GameControl
+7. simply output `odd {number}` or `even {number}` in the respective components
+8. style the element holding the text differently for each component
+*/
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  serverElements: ServerElement[] = [
-    new ServerElement('server', 'First Server', '$> echo hello world')
-  ];
-
-  onAddServerElement($event: ServerElement) {
-    this.serverElements.push($event)
-  }
-
-  onChangeFirst() {
-    this.serverElements[0].name = "Changed Name"
-  }
-
-  onDestroyFirst() {
-    this.serverElements.splice(0, 1)
-  }
-
 }
