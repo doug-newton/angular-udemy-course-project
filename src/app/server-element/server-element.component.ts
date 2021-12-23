@@ -26,7 +26,7 @@ the component implements the corresponding interface
 })
 export class ServerElementComponent implements OnInit, OnChanges {
 
-  @Input() serverElement: ServerElement
+  @Input() serverElementName: string
 
   constructor() {
     console.log('constructor called')
