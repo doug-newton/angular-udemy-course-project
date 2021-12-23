@@ -1,0 +1,9 @@
+:host {
+    font-size: 10px;
+    display: inline-block;
+    background-color: lightcoral;
+    border: 1px solid blueviolet;
+    margin: 0.5em;
+    padding: 0.5em;
+    border-radius: 5px;
+}
