@@ -8,7 +8,9 @@ import { ServerElement } from './server-element.model';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  serverElements: ServerElement[] = [];
+  serverElements: ServerElement[] = [
+    new ServerElement('server', 'First Server', '$> echo hello world')
+  ];
 
   onAddServerElement($event: ServerElement) {
     this.serverElements.push($event)
