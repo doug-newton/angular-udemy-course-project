@@ -1,1 +1,11 @@
-<p>game-control works!</p>
+<div class="container">
+    <div class="row">
+        {{count}}
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <button (click)="onStartClicked()" class="btn btn-primary">start</button>
+            <button (click)="onPauseClicked()" class="btn btn-warning">pause</button>
+        </div>
+    </div>
+</div>
