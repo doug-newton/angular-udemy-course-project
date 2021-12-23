@@ -8,7 +8,7 @@ import { ServerElement } from '../server-element.model';
 })
 export class CockpitComponent implements OnInit {
 
-  @Output() addServerElement: EventEmitter<ServerElement> = new EventEmitter
+  @Output('addServerElementAlias') addServerElement: EventEmitter<ServerElement> = new EventEmitter
 
   constructor() { }
 
