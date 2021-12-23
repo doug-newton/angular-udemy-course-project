@@ -8,26 +8,9 @@ import { ServerElement } from './server-element.model';
 })
 export class AppComponent {
   serverElements = [];
-  newServerName = '';
-  newServerContent = '';
 
-  onAddServer() {
-
-    this.serverElements.push(
-      new ServerElement(
-        'server',
-        this.newServerName,
-        this.newServerContent
-      )
-    );
+  onAddServerElement($event: ServerElement) {
+    this.serverElements.push($event)
   }
 
-  onAddBlueprint() {
-    this.serverElements.push(
-      new ServerElement(
-        'blueprint',
-        this.newServerName,
-        this.newServerContent
-      ));
-  }
 }
