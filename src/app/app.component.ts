@@ -17,4 +17,20 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  oddNumbers: number[] = []
+  evenNumbers: number[] = []
+
+  constructor() {
+  }
+
+  onNumberEmitted($event: number) {
+    if ($event % 2 == 1)
+    {
+      this.oddNumbers.push($event);
+    }
+    else {
+      this.evenNumbers.push($event)
+    }
+  }
 }
