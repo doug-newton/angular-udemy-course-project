@@ -7,7 +7,7 @@ import { ServerElement } from './server-element.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  serverElements = [];
+  serverElements: ServerElement[] = [];
 
   onAddServerElement($event: ServerElement) {
     this.serverElements.push($event)
