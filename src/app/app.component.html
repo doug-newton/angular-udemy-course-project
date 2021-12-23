@@ -1,13 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <app-game-control></app-game-control>
+      <app-game-control (numberEmitted)="onNumberEmitted($event)"></app-game-control>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-6">
+      <ul>
+        <li *ngFor="let num of oddNumbers">{{num}}</li>
+      </ul>
     </div>
     <div class="col-xs-6">
+      <ul>
+        <li *ngFor="let num of evenNumbers">{{num}}</li>
+      </ul>
     </div>
   </div>
 </div>
