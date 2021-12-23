@@ -16,4 +16,8 @@ export class AppComponent {
     this.serverElements.push($event)
   }
 
+  onChangeFirst() {
+    this.serverElements[0].name = "Changed Name"
+  }
+
 }
