@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, ContentChild, ElementRef } from '@angular/core';
 import { ServerElement } from '../server-element.model';
 
 /*
@@ -36,6 +36,7 @@ export class ServerElementComponent implements
   {
 
   @Input() serverElementName: string
+  @ContentChild('paragraph') paragraph: ElementRef
 
   constructor() {
     console.log('constructor called')
@@ -65,6 +66,7 @@ export class ServerElementComponent implements
 
   ngAfterViewInit(): void {
     console.log('ngAfterViewInit called')
+    console.log(this.paragraph.nativeElement.textContent)
   }
 
   ngAfterViewChecked(): void {
