@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { ServerElement } from '../server-element.model';
 
 /*
@@ -14,6 +14,9 @@ ngAfterViewInit - called after the component's view (and child views) has been i
 ngAfterViewChecked - called after the view and child views have been checked
 ngOnDestroy - called once the component is about to be destroyed / removed from the DOM
 
+lifecycle hooks will be called appropriately regardless of whether
+the component implements the corresponding interface
+
 */
 
 @Component({
@@ -21,13 +24,20 @@ ngOnDestroy - called once the component is about to be destroyed / removed from 
   templateUrl: './server-element.component.html',
   styleUrls: ['./server-element.component.css']
 })
-export class ServerElementComponent implements OnInit {
+export class ServerElementComponent implements OnInit, OnChanges {
 
   @Input() serverElement: ServerElement
 
-  constructor() { }
+  constructor() {
+    console.log('constructor called')
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('ngOnChanges called:', changes)
+  }
 
   ngOnInit(): void {
+    console.log('ngOnInit called')
   }
 
 }
