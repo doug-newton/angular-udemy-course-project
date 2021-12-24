@@ -16,7 +16,7 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     this.user = {
       id: this.route.snapshot.params['id'],
-      name: 'doug'
+      name: this.route.snapshot.params['name'],
     }
   }
 
