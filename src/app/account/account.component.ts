@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { LoggingService } from '../logging.service';
 
 @Component({
   selector: 'app-account',
@@ -14,9 +13,6 @@ export class AccountComponent {
 
   onSetTo(status: string) {
     this.statusChanged.emit({id: this.id, newStatus: status});
-
-    //  you should not do this
-    const service = new LoggingService()
-    service.logStatusChange(status)
+    console.log('A server status changed, new status: ' + status);
   }
 }
