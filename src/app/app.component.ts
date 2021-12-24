@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'udemy-course-project';
   
-  currentPage: string = 'shopping-list'
+  currentPage: string = 'recipes'
 
   onSwitchPage($event: string) {
     this.currentPage = $event
