@@ -10,11 +10,11 @@ export class DropdownDirective {
     ) {
     }
 
-    toggled = false
+    isOpen = false
 
-    @HostListener('click') onClick(eventData: Event) {
-        this.toggled = !this.toggled
-        if (this.toggled)
+    @HostListener('click') toggleOpen(eventData: Event) {
+        this.isOpen = !this.isOpen
+        if (this.isOpen)
             this.elementRef.nativeElement.classList.add('open')
         else
             this.elementRef.nativeElement.classList.remove('open')
