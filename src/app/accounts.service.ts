@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, EventEmitter } from "@angular/core";
 import { LoggingService } from "./logging.service";
 
 /*
@@ -17,6 +17,8 @@ export class AccountsService {
     private loggingService: LoggingService
   ){
   }
+
+  statusChange: EventEmitter<string> = new EventEmitter
 
   accounts = [
     {
@@ -43,6 +45,7 @@ export class AccountsService {
   updateStatus(id: number, status:string) {
     this.accounts[id].status = status
     this.loggingService.logStatusChange(status)
+    this.statusChange.emit(status)
   }
 
 }

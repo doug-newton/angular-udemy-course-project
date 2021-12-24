@@ -13,6 +13,9 @@ export class AppComponent implements OnInit {
   constructor(
     private accountsService: AccountsService
   ){
+    this.accountsService.statusChange.subscribe(status => {
+      alert('New Status: ' + status)
+    })
   }
 
   ngOnInit(): void {
