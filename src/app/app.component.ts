@@ -6,11 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'udemy-course-project';
-  
-  currentPage: string = 'recipes'
-
-  onSwitchPage($event: string) {
-    this.currentPage = $event
-  }
 }
