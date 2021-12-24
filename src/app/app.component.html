@@ -5,14 +5,14 @@
       <br><br>
       <div *ngIf="onlyOdd == true">
         <ul class="list-group">
-          <li *ngFor="let odd of oddNumbers" class="list-group-item">
+          <li [ngClass]="{odd: odd % 2 != 0}" *ngFor="let odd of oddNumbers" class="list-group-item">
             {{odd}}
           </li>
         </ul>
       </div>
       <div *ngIf="onlyOdd == false">
         <ul class="list-group">
-          <li *ngFor="let even of evenNumbers" class="list-group-item">
+          <li [ngClass]="{odd: even % 2 != 0}" *ngFor="let even of evenNumbers" class="list-group-item">
             {{even}}
           </li>
         </ul>
