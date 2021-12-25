@@ -29,6 +29,25 @@ export class AppComponent implements OnInit {
     })
   }
 
+  onSetValue() {
+    this.signupForm.setValue({
+      user: {
+        username: 'doug',
+        email: 'doug@example.com'
+      },
+      gender: 'male',
+      hobbies: []
+    })
+  }
+
+  onPatchValue() {
+    this.signupForm.patchValue({
+      user: {
+        email: 'test@test.com'
+      }
+    })
+  }
+
   get hobbyControls() {
     return (this.signupForm.get('hobbies') as FormArray).controls;
   }
