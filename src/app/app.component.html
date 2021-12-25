@@ -31,7 +31,7 @@
           <label for="password">Password:</label>
           <input type="password" name="password" class="form-control" ngModel required>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button [disabled]="!signupForm.valid" type="submit" class="btn btn-primary">Submit</button>
       </form>
 
     </div>
