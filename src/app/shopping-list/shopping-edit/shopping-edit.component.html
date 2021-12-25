@@ -8,7 +8,9 @@
                 </div>
                 <div class="col-sm-2 form-group">
                     <label for="amount">Amount</label>
-                    <input ngModel name="amountInput" type="text" id="amount" class="form-control" required>
+                    <input ngModel name="amountInput" type="number" id="amount" class="form-control" required
+                        [pattern]="'^[1-9][0-9]+'"
+                    >
                 </div>
             </div>
             <div class="row">
