@@ -12,9 +12,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
       this.signupForm = new FormGroup({
-        //  use:
-        //  'username': new FormControl()
-        //  to preserve variable name on minification. probably not necessary
         username: new FormControl(null),
         email: new FormControl(null),
         gender: new FormControl('male')
