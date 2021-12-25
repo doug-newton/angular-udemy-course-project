@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
       this.projectForm = new FormGroup({
         name: new FormControl(null, Validators.required),
         email: new FormControl(null, [Validators.required, Validators.email]),
-        status: new FormControl(null)
+        status: new FormControl(null, Validators.required)
       })
   }
 
