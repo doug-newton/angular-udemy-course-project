@@ -16,14 +16,41 @@
       -->
 
       <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+
         <div class="form-group">
           <label for="name">Project Name</label>
           <input formControlName="name" class="form-control" type="text">
         </div>
+
+        <span
+          class="help-block"
+          *ngIf="!projectForm.get('name').valid && projectForm.get('name').touched" 
+        >
+          <span
+            class="help-block"
+            *ngIf="projectForm.get('name').errors.required"
+          >project name is required</span>
+        </span>
+
         <div class="form-group">
           <label for="email">Email</label>
           <input formControlName="email" class="form-control" type="text">
         </div>
+
+        <span
+          class="help-block"
+          *ngIf="!projectForm.get('email').valid && projectForm.get('email').touched" 
+        >
+          <span
+            class="help-block"
+            *ngIf="projectForm.get('email').errors.required"
+          >email is required</span>
+          <span
+            class="help-block"
+            *ngIf="projectForm.get('email').errors.email"
+          >invalid email address</span>
+        </span>
+
         <div class="form-group">
           <label for="status">Status</label>
           <select formControlName="status" name="status" id="status" class="form-control">
@@ -32,7 +59,19 @@
             <option value="Finished">Finished</option>
           </select>
         </div>
+
+        <span
+          class="help-block"
+          *ngIf="!projectForm.get('status').valid && projectForm.get('status').touched" 
+        >
+          <span
+            class="help-block"
+            *ngIf="projectForm.get('status').errors.required"
+          >project status is required</span>
+        </span>
+
         <button class="btn btn-primary" type="submit">Submit</button>
+
       </form>
 
     </div>
