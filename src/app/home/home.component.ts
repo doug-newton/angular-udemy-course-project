@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
+import { map, filter } from 'rxjs/operators'
 
 @Component({
   selector: 'app-home',
@@ -26,7 +27,16 @@ export class HomeComponent implements OnInit, OnDestroy {
       }, 1000)
     })
 
-    this.firstSubscription = customObservable.subscribe({
+    const roundObservable = customObservable.pipe(
+      filter(data => {
+        return (+data) % 2 == 0
+      }),
+      map(data => {
+        return 'round ' + (+data + 1)
+      })
+    )
+
+    this.firstSubscription = roundObservable.subscribe({
       next(count) {
         console.log(count)
       },
