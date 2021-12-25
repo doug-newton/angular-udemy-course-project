@@ -30,6 +30,10 @@
             class="help-block"
             *ngIf="projectForm.get('name').errors.required"
           >project name is required</span>
+          <span
+            class="help-block"
+            *ngIf="projectForm.get('name').errors.nameIsTest"
+          >project name cannot be 'Test'!</span>
         </span>
 
         <div class="form-group">
