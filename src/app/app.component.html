@@ -17,11 +17,11 @@
         <h3>Sign Up</h3>
         <div class="form-group">
           <label for="email">Email:</label>
-          <input type="text" name="email" class="form-control">
+          <input type="text" name="email" class="form-control" ngModel required email>
         </div>
         <div class="form-group">
           <label for="subscription">Subscription:</label>
-          <select name="subscription" id="subcription" class="form-control">
+          <select name="subscription" id="subcription" class="form-control" ngModel required>
             <option value="Basic">Basic</option>
             <option value="Advanced">Advanced</option>
             <option value="Pro">Pro</option>
@@ -29,7 +29,7 @@
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
-          <input type="password" name="password" class="form-control">
+          <input type="password" name="password" class="form-control" ngModel required>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
