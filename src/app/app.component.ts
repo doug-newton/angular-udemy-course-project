@@ -11,6 +11,14 @@ export class AppComponent {
   @ViewChild('myForm') form: NgForm
   answer: string = ''
   genders: string[] = ['male', 'female']
+  submitted = false
+  user = {
+    username: '',
+    email: '',
+    secret: '',
+    answer: '',
+    gender: ''
+  }
 
   onSetValue() {
     this.form.setValue({
@@ -33,6 +41,11 @@ export class AppComponent {
   }
 
   onSubmit() {
-    console.log(this.form)
+    this.submitted = true
+    this.user.username = this.form.value.userData.username
+    this.user.email = this.form.value.userData.email
+    this.user.secret = this.form.value.secret
+    this.user.answer = this.form.value.answer
+    this.user.gender = this.form.value.gender
   }
 }
