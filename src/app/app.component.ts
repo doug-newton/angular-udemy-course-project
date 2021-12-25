@@ -12,8 +12,24 @@ export class AppComponent {
   answer: string = ''
   genders: string[] = ['male', 'female']
 
-  suggestUserName() {
-    const suggestedName = 'Superuser';
+  onSetValue() {
+    this.form.setValue({
+      userData: {
+        username: 'Superuser',
+        email: ''
+      },
+      secret: 'teacher',
+      answer: '',
+      gender: 'male'
+    })
+  }
+
+  onPatchValue() {
+    this.form.form.patchValue({
+      userData: {
+        username: 'Superuser'
+      }
+    })
   }
 
   onSubmit() {
