@@ -18,25 +18,6 @@ export class EditServerComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    //  ok if we only need the information once
-
-    console.log(this.route.snapshot.queryParams)
-    console.log(this.route.snapshot.fragment)
-
-    //  do this if the route information will change 
-    //  while on the same component
-
-    //  note no need to unsubscribe - angular automatically
-    //  unsubscribes from route subscriptions
-
-    this.route.queryParams.subscribe(queryParams => {
-      console.log(queryParams)
-    })
-
-    this.route.fragment.subscribe(fragment => {
-      console.log(fragment)
-    })
-
     this.server = this.serversService.getServer(1);
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
