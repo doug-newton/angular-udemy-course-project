@@ -17,7 +17,7 @@
                 <div class="col-xs-12">
                     <button [disabled]="!ingredientsForm.valid" type="submit" class="btn btn-success"
                         >{{editMode?'Update':'Add'}}</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button *ngIf="editMode" (click)="onDelete()" type="button" class="btn btn-danger">Delete</button>
                     <button (click)="onClear()" type="button" class="btn btn-primary">Clear</button>
                 </div>
             </div>
