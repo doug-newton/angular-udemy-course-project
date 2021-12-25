@@ -31,7 +31,11 @@ const appRoutes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(appRoutes)
+      //  this is useful if you can't get your server to map all routes to index.html
+      //  it will use http://domain/#/some-route/here
+      //  the part after the hash is technically a has fragment, so it will be ignored by
+      //  both the client and the server accordingly and allow angular to handle it
+        RouterModule.forRoot(appRoutes, {useHash: true})
     ],
     exports: [
         RouterModule
