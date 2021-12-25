@@ -24,7 +24,7 @@
 
         <span
           class="help-block"
-          *ngIf="!projectForm.get('name').valid && projectForm.get('name').touched" 
+          *ngIf="projectForm.get('name').invalid && projectForm.get('name').touched" 
         >
           <span
             class="help-block"
@@ -43,7 +43,7 @@
 
         <span
           class="help-block"
-          *ngIf="!projectForm.get('email').valid && projectForm.get('email').touched" 
+          *ngIf="projectForm.get('email').invalid && projectForm.get('email').touched" 
         >
           <span
             class="help-block"
@@ -66,7 +66,7 @@
 
         <span
           class="help-block"
-          *ngIf="!projectForm.get('status').valid && projectForm.get('status').touched" 
+          *ngIf="projectForm.get('status').invalid && projectForm.get('status').touched" 
         >
           <span
             class="help-block"
