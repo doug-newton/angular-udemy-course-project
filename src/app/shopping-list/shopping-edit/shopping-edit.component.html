@@ -4,16 +4,16 @@
             <div class="row">
                 <div class="col-sm-5 form-group">
                     <label for="name">Name</label>
-                    <input ngModel name="nameInput" type="text" id="name" class="form-control">
+                    <input ngModel name="nameInput" type="text" id="name" class="form-control" required>
                 </div>
                 <div class="col-sm-2 form-group">
                     <label for="amount">Amount</label>
-                    <input ngModel name="amountInput" type="text" id="amount" class="form-control">
+                    <input ngModel name="amountInput" type="text" id="amount" class="form-control" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <button type="submit" class="btn btn-success">Add</button>
+                    <button [disabled]="!ingredientsForm.valid" type="submit" class="btn btn-success">Add</button>
                     <button type="button" class="btn btn-danger">Delete</button>
                     <button type="button" class="btn btn-primary">Clear</button>
                 </div>
