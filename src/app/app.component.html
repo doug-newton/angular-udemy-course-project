@@ -1,70 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
-        <div class="form-group" formGroupName="user">
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input
-              type="text"
-              id="username"
-              class="form-control"
-              formControlName="username"
-              >
-              <span
-                *ngIf="!signupForm.get('user.username').valid && signupForm.get('user.username').touched"
-                class="help-block">
-                <span class="help-block"
-                  *ngIf="signupForm.get('user.username').errors['nameIsForbidden']&& signupForm.get('user.username').touched"
-                >forbidden name</span>
-                <span class="help-block"
-                  *ngIf="signupForm.get('user.username').errors['required']&& signupForm.get('user.username').touched"
-                >name is required</span>
-              </span>
-          </div>
-          <div class="form-group">
-            <button type="button" (click)="onSetValue()" class="btn btn-default">Set Values</button>
-            <button type="button" (click)="onPatchValue()" class="btn btn-default">Patch Values</button>
-          </div>
-          <div class="form-group">
-            <label for="email">email</label>
-            <input
-              type="text"
-              id="email"
-              class="form-control"
-              formControlName="email"
-              >
-              <span
-                *ngIf="!signupForm.get('user.email').valid && signupForm.get('user.email').touched"
-                class="help-block">please enter a valid email</span>
-          </div>
-        </div>
-        <div class="radio" *ngFor="let gender of genders">
-          <label>
-            <input
-              type="radio"
-              [value]="gender"
-              formControlName="gender"
-              >{{ gender }}
-          </label>
-        </div>
-        <div formArrayName="hobbies">
-          <h4>Your Hobbies</h4>
-          <button (click)="onAddHobby()" type="button" class="btn btn-default">Add Hobby</button>
-          <div class="form-group">
-            <input 
-              *ngFor="let hobby of hobbyControls; let i = index"
-              class="form-control"
-              [formControlName]="i"
-              type="text"
-              >
-          </div>
-        </div>
-            <span
-              *ngIf="!signupForm.valid && signupForm.touched"
-              class="help-block">please enter valid data</span>
-        <button [disabled]="!signupForm.valid" class="btn btn-primary" type="submit">Submit</button>
-      </form>
+      <!--
+          Create a Form with the following Controls and Validators
+          1) Project Name (should not be empty)
+          2) Mail (should not be a empty and a valid email)
+          3) Project Status Dropdown, with three values: 'Stable', 'Critical', 'Finished'
+          4) Submit Button
+
+          Add your own Validator which doesn't allow "Test" as a Project Name
+
+          Also implement that Validator as an async Validator (replace the other one)
+
+          Upon submitting the form, simply print the value to the console
+      -->
     </div>
   </div>
 </div>
