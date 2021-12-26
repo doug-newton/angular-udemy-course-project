@@ -14,8 +14,9 @@ export class AppComponent implements OnInit {
   ngOnInit() {}
 
   onCreatePost(postData: { title: string; content: string }) {
-    // Send Http request
-    console.log(postData);
+    this.http.post('http://localhost:8080/api/posts', postData).subscribe(response => {
+      console.log(response)
+    })
   }
 
   onFetchPosts() {
