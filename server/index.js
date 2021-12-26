@@ -11,9 +11,26 @@ const app = express()
 app.use(cors())
 app.use(express.json({limit: '64mb'}));
 
-app.get('/api', (req, res) => {
+const apiRouter = express.Router()
+
+apiRouter.get('/', (req, res) => {
     res.json({msg: 'hello world'})
 })
+
+apiRouter.post('/posts', (req, res) => {
+    const obj = req.body
+    req.app.locals.db.collection('posts').insertOne(obj, function(err, dbRes) {
+        if (err) {
+            res.status(500)
+            res.json({msg:err})
+        }
+        else {
+            res.json({msg: 'document inserted', _id: dbRes.insertedId})
+        }
+    })
+})
+
+app.use('/api', apiRouter)
 
 function gracefulShutdown() {
     app.locals.db_connection.close(() => {
