@@ -30,6 +30,18 @@ apiRouter.post('/posts', (req, res) => {
     })
 })
 
+apiRouter.get('/posts', (req, res) => {
+    req.app.locals.db.collection('posts').find({}).toArray((err, result) => {
+        if (err) {
+            res.status(500)
+            res.json({msg: err})
+        }
+        else {
+            res.json(result)
+        }
+    })
+})
+
 app.use('/api', apiRouter)
 
 function gracefulShutdown() {
