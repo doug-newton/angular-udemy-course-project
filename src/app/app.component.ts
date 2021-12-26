@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators'
 
 @Component({
   selector: 'app-root',
@@ -30,8 +31,16 @@ export class AppComponent implements OnInit {
   }
 
   private fetchPosts() {
-    this.http.get('http://localhost:8080/api/posts').subscribe(posts => {
-      console.log(posts)
-    })
+    this.http.get('http://localhost:8080/api/posts')
+      .pipe(map((data: []) => {
+        return data.map(item=>{
+          item['id'] = item['_id']
+          delete item['_id']
+          return item
+        })
+      }))
+      .subscribe(posts => {
+        console.log(posts)
+      })
   }
 }
