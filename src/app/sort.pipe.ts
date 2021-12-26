@@ -7,7 +7,12 @@ export class SortPipe implements PipeTransform {
 
   transform(value: object[], propName: string): object[] {
     return value.sort((a, b)=>{
-      return a[propName].localeCompare(b[propName])
+      if (a[propName] > b[propName]) {
+        return 1
+      }
+      else {
+        return -1
+      }
     })
   }
 
