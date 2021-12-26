@@ -9,6 +9,7 @@ import { Post } from './post.model'
 })
 export class AppComponent implements OnInit {
   loadedPosts: Post[] = [];
+  isFetching: boolean = false
 
   constructor(private http: HttpClient) {}
 
@@ -31,9 +32,11 @@ export class AppComponent implements OnInit {
   }
 
   private fetchPosts() {
+    this.isFetching = true
     this.http.get<Post[]>('http://localhost:8080/api/posts')
       .subscribe(posts => {
         this.loadedPosts = posts
+        this.isFetching = false
       })
   }
 }
