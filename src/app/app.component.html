@@ -5,6 +5,12 @@
         <input type="text" name="filterValue" [(ngModel)]="filterValue" class="form-control">
         <br>
         <button (click)="onAddServer()" class="btn btn-primary" type="button">Add Server</button>
+        <br>
+        <!--this will output [object Promise]-->
+        <h2>app status: {{ appStatus }}</h2>
+        <br>
+        <!--the async pipe will recognise the Promise or Observer accordingly and display resolved or next value-->
+        <h2>app status: {{ appStatus | async}}</h2>
         <hr>
         <li
           class="list-group-item"
