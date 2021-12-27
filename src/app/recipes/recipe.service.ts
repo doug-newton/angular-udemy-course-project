@@ -13,6 +13,7 @@ export class RecipeService {
         private shoppingListService: ShoppingListService
     ){}
 
+/*
     private recipes: Recipe[] = [
         new Recipe(
             'Tasty Schnitzel',
@@ -23,7 +24,6 @@ export class RecipeService {
                 new Ingredient('French Fries', 20)
             ]
         ),
-
         new Recipe('Big Fat Burger',
             'What else do you need to know?',
             'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg',
@@ -32,8 +32,10 @@ export class RecipeService {
                 new Ingredient('Beef Patty', 1)
             ]
         ),
-
     ]
+*/
+
+    private recipes: Recipe[] = []
 
     setRecipes(recipes: Recipe[]) {
         this.recipes = recipes
