@@ -36,8 +36,7 @@ apiRouter.put('/recipes', (req, res) => {
     const bulkOperations = []
 
     for (let obj of arr) {
-        const id = obj._id
-        if (typeof id === 'undefined' ) {
+        if (!('_id' in obj)) {
             bulkOperations.push({
                 insertOne: {
                     document: obj
@@ -45,6 +44,7 @@ apiRouter.put('/recipes', (req, res) => {
             })
         }
         else {
+            const id = obj._id
             delete obj._id
             bulkOperations.push({
                 updateOne: {
