@@ -18,14 +18,14 @@ apiRouter.get('/', (req, res) => {
 })
 
 apiRouter.post('/posts', (req, res) => {
-    const obj = req.body
-    req.app.locals.db.collection('posts').insertOne(obj, function(err, dbRes) {
+    const arr = req.body
+    req.app.locals.db.collection('posts').insertMany(arr, function(err, result) {
         if (err) {
             res.status(500)
             res.json({msg:err})
         }
         else {
-            res.json({msg: 'document inserted', _id: dbRes.insertedId})
+            res.json(result)
         }
     })
 })
