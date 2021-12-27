@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
 
   onCreatePost(data: {title:string; content: string}) {
     this.postsService.createPost(data.title, data.content).subscribe(response => {
-      console.log(response)
+      this.fetchPosts()
     })
   }
 
