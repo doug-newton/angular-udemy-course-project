@@ -22,4 +22,8 @@ export class PostsService {
     fetchPosts(): Observable<Post[]> {
         return this.http.get<Post[]>('http://localhost:8080/api/posts')
     }
+
+    deletePosts(): Observable<any> {
+        return this.http.delete<any>('http://localhost:8080/api/posts')
+    }
 }

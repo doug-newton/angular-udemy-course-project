@@ -30,7 +30,9 @@ export class AppComponent implements OnInit {
   }
 
   onClearPosts() {
-    // Send Http request
+    this.postsService.deletePosts().subscribe(response => {
+      this.fetchPosts()
+    })
   }
 
   private fetchPosts() {
