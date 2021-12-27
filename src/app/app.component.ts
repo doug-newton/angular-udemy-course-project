@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Post } from './post.model'
+import { PostsService } from './posts.service';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +11,16 @@ export class AppComponent implements OnInit {
   loadedPosts: Post[] = [];
   isFetching: boolean = false
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private postsService: PostsService
+  ) {}
 
   ngOnInit() {
     this.fetchPosts()
   }
 
-  onCreatePost(postData: { title: string; content: string }) {
-    this.http.post('http://localhost:8080/api/posts', postData).subscribe(response => {
+  onCreatePost(data: {title:string; content: string}) {
+    this.postsService.createPost(data.title, data.content).subscribe(response => {
       console.log(response)
     })
   }
@@ -33,10 +35,9 @@ export class AppComponent implements OnInit {
 
   private fetchPosts() {
     this.isFetching = true
-    this.http.get<Post[]>('http://localhost:8080/api/posts')
-      .subscribe(posts => {
-        this.loadedPosts = posts
-        this.isFetching = false
-      })
+    this.postsService.fetchPosts().subscribe(posts => {
+      this.loadedPosts = posts
+      this.isFetching = false
+    })
   }
 }
