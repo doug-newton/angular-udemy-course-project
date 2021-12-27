@@ -37,17 +37,26 @@ apiRouter.put('/recipes', (req, res) => {
 
     for (let obj of arr) {
         const id = obj._id
-        delete obj._id
-        bulkOperations.push({
-            updateOne: {
-                filter: {
-                    _id: new ObjectId(id)
-                },
-                update: {
-                    '$set': obj
+        if (typeof id === 'undefined' ) {
+            bulkOperations.push({
+                insertOne: {
+                    document: obj
                 }
-            }
-        })
+            })
+        }
+        else {
+            delete obj._id
+            bulkOperations.push({
+                updateOne: {
+                    filter: {
+                        _id: new ObjectId(id)
+                    },
+                    update: {
+                        '$set': obj
+                    }
+                }
+            })
+        }
     }
 
     req.app.locals.db.collection('recipes').bulkWrite(bulkOperations)
