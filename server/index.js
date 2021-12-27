@@ -17,9 +17,9 @@ apiRouter.get('/', (req, res) => {
     res.json({msg: 'hello world'})
 })
 
-apiRouter.post('/posts', (req, res) => {
+apiRouter.post('/recipes', (req, res) => {
     const arr = req.body
-    req.app.locals.db.collection('posts').insertMany(arr, function(err, result) {
+    req.app.locals.db.collection('recipes').insertMany(arr, function(err, result) {
         if (err) {
             res.status(500)
             res.json({msg:err})
@@ -30,7 +30,7 @@ apiRouter.post('/posts', (req, res) => {
     })
 })
 
-apiRouter.put('/posts', (req, res) => {
+apiRouter.put('/recipes', (req, res) => {
     const arr = req.body
 
     const bulkOperations = []
@@ -50,7 +50,7 @@ apiRouter.put('/posts', (req, res) => {
         })
     }
 
-    req.app.locals.db.collection('posts').bulkWrite(bulkOperations)
+    req.app.locals.db.collection('recipes').bulkWrite(bulkOperations)
     .then(result => {
         res.json(result)
     }).catch(err => {
@@ -59,8 +59,8 @@ apiRouter.put('/posts', (req, res) => {
     })
 })
 
-apiRouter.get('/posts', (req, res) => {
-    req.app.locals.db.collection('posts').find({}).toArray((err, result) => {
+apiRouter.get('/recipes', (req, res) => {
+    req.app.locals.db.collection('recipes').find({}).toArray((err, result) => {
         if (err) {
             res.status(500)
             res.json({msg: err})
@@ -71,8 +71,8 @@ apiRouter.get('/posts', (req, res) => {
     })
 })
 
-apiRouter.delete('/posts', (req, res) => {
-    req.app.locals.db.collection('posts').deleteMany({}, (err, result) => {
+apiRouter.delete('/recipes', (req, res) => {
+    req.app.locals.db.collection('recipes').deleteMany({}, (err, result) => {
         if (err) {
             res.status(500)
             res.json({msg: err})
