@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 const express = require('express')
 const cors = require('cors')
 
@@ -27,6 +27,35 @@ apiRouter.post('/posts', (req, res) => {
         else {
             res.json({msg: 'document inserted', _id: dbRes.insertedId})
         }
+    })
+})
+
+apiRouter.put('/posts', (req, res) => {
+    const arr = req.body
+
+    const bulkOperations = []
+
+    for (let obj of arr) {
+        const id = obj._id
+        delete obj._id
+        bulkOperations.push({
+            updateOne: {
+                filter: {
+                    _id: new ObjectId(id)
+                },
+                update: {
+                    '$set': obj
+                }
+            }
+        })
+    }
+
+    req.app.locals.db.collection('posts').bulkWrite(bulkOperations)
+    .then(result => {
+        res.json(result)
+    }).catch(err => {
+        res.status(500)
+        res.json({ msg: err })
     })
 })
 
