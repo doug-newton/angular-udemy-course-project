@@ -16,4 +16,10 @@ export class DataStorageService {
         const recipes = this.recipeService.getRecipes()
         this.http.put('http://localhost:8080/api/recipes', recipes).subscribe()
     }
+
+    fetchRecipes() {
+        this.http.get<Recipe[]>('http://localhost:8080/api/recipes').subscribe(recipes => {
+            this.recipeService.setRecipes(recipes)
+        })
+    }
 }
