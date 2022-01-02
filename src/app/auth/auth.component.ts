@@ -11,6 +11,7 @@ import { AuthService } from './auth.service';
 export class AuthComponent implements OnInit {
 
   isLoginMode: boolean = true
+  isLoading: boolean = false
 
   constructor(
     private authService: AuthService
@@ -26,6 +27,7 @@ export class AuthComponent implements OnInit {
   onSubmit(authForm: NgForm) {
     if (!authForm.valid) return
     const { username, password } = authForm.value
+    this.isLoading = true
 
     if (this.isLoginMode) {
     } else {
@@ -41,6 +43,7 @@ export class AuthComponent implements OnInit {
           console.log(error)
         },
         complete: () => {
+          this.isLoading = false
         }
       })
     }
