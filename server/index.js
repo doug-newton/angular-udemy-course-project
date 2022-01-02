@@ -1,96 +1,21 @@
 const { MongoClient, ObjectId } = require('mongodb');
 const express = require('express')
 const cors = require('cors')
-
-const mongoUrl = "mongodb://localhost:27017"
-const dbName = "angular-udemy-course-project"
-const port = 8080
+const jwt = require('jsonwebtoken')
+const { auth } = require('./auth')
+require('dotenv').config()
 
 const app = express()
+const users = require('./users')
+const recipes = require('./recipes')
 
 app.use(cors())
 app.use(express.json({limit: '64mb'}));
 
 const apiRouter = express.Router()
 
-apiRouter.get('/', (req, res) => {
-    res.json({msg: 'hello world'})
-})
-
-apiRouter.post('/recipes', (req, res) => {
-    const arr = req.body
-    req.app.locals.db.collection('recipes').insertMany(arr, function(err, result) {
-        if (err) {
-            res.status(500)
-            res.json({msg:err})
-        }
-        else {
-            res.json(result)
-        }
-    })
-})
-
-apiRouter.put('/recipes', (req, res) => {
-    const arr = req.body
-
-    const bulkOperations = []
-
-    for (let obj of arr) {
-        if (!('_id' in obj)) {
-            bulkOperations.push({
-                insertOne: {
-                    document: obj
-                }
-            })
-        }
-        else {
-            const id = obj._id
-            delete obj._id
-            bulkOperations.push({
-                updateOne: {
-                    filter: {
-                        _id: new ObjectId(id)
-                    },
-                    update: {
-                        '$set': obj
-                    }
-                }
-            })
-        }
-    }
-
-    req.app.locals.db.collection('recipes').bulkWrite(bulkOperations)
-    .then(result => {
-        res.json(result)
-    }).catch(err => {
-        res.status(500)
-        res.json({ msg: err })
-    })
-})
-
-apiRouter.get('/recipes', (req, res) => {
-    req.app.locals.db.collection('recipes').find({}).toArray((err, result) => {
-        if (err) {
-            res.status(500)
-            res.json({msg: err})
-        }
-        else {
-            res.json(result)
-        }
-    })
-})
-
-apiRouter.delete('/recipes', (req, res) => {
-    req.app.locals.db.collection('recipes').deleteMany({}, (err, result) => {
-        if (err) {
-            res.status(500)
-            res.json({msg: err})
-        }
-        else {
-            res.json(result)
-        }
-    })
-})
+apiRouter.use('/recipes', auth, recipes)
+apiRouter.use('/users', users)
 
 app.use('/api', apiRouter)
 
@@ -105,13 +30,13 @@ process.on('SIGINT', gracefulShutdown);
 process.on('SIGTERM', gracefulShutdown);
 process.on('SIGKILL', gracefulShutdown);
 
-MongoClient.connect(mongoUrl, (err, db) => {
+MongoClient.connect(process.env.MONGO_URI, (err, db) => {
     if (err) throw err;
 
     app.locals.db_connection = db;
-    app.locals.db = db.db(dbName);
+    app.locals.db = db.db(process.env.DB_NAME);
 
-    app.listen(port, () => {
-        console.log(`serving on port ${port}`)
+    app.listen(process.env.PORT, () => {
+        console.log(`serving on port ${process.env.PORT}`)
     })
 })
