@@ -12,6 +12,7 @@ export class AuthComponent implements OnInit {
 
   isLoginMode: boolean = true
   isLoading: boolean = false
+  error: string = null
 
   constructor(
     private authService: AuthService
@@ -31,15 +32,14 @@ export class AuthComponent implements OnInit {
 
     if (this.isLoginMode) {
     } else {
-      this.authService.signup(username, password).pipe(
-        catchError(error => {
-          return of(error)
-        })
-      ).subscribe({
+      this.authService.signup(username, password).subscribe({
         next: result => {
           console.log(result)
+          this.isLoading = false
         },
         error: error => {
+          this.error = error.error.message
+          this.isLoading = false
           console.log(error)
         },
         complete: () => {
