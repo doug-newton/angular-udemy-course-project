@@ -25,6 +25,7 @@ router.post('/signup', (req, res) => {
                     res.json({ message: err })
                 }
                 else {
+                    result.message = 'signup successful'
                     res.json(result)
                 }
             })
