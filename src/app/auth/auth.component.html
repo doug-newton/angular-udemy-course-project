@@ -11,8 +11,8 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <button class="btn btn-primary">Sign up</button> |
-                    <button class="btn btn-primary">Switch to Login</button>
+                    <button type="submit" class="btn btn-primary">{{ isLoginMode ? 'Login' : 'Sign Up' }}</button> |
+                    <button type="button" (click)="onSwitchMode()" class="btn btn-primary">Switch to {{ isLoginMode ? 'Sign Up' : 'Login' }}</button>
                 </div>
             </div>
         </form>
